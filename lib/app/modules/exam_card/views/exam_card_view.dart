@@ -49,50 +49,45 @@ class ExamCardView extends GetView<ExamCardController> {
               width: Get.width,
               child: Column(
                 children: [
-                  const Row(
+                   Row(
                     children: [
-                      CircleAvatar(
+                       Obx(()=> CircleAvatar(
                         backgroundColor: Colors.black26,
                         radius: 30,
                         backgroundImage:
-                            NetworkImage("https://ui-avatars.com/api/?name=y"),
-                      ),
+                            NetworkImage("https://ui-avatars.com/api/?name=${controller.nama.value.replaceAll(' ', '-')}}"),
+                      )),
                       SizedBox(width: 10),
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Sukma Anggarmadi",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              "2111527001",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "Sistem Informasi",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "Ganjil 2023/2024",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
+                        child: Obx(() => Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        controller.nama.value,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(
+                                        controller.nim.value,
+                                        style: TextStyle(
+                                          color: Colors.black38,
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                      Text(
+                                        controller.departemen.value,
+                                        style: TextStyle(
+                                          color: Colors.black38,
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                    ],
+                                  )),
                       ),
                     ],
                   ),

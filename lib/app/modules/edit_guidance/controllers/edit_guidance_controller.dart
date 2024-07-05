@@ -83,7 +83,7 @@ class EditGuidanceController extends GetxController {
           if (response.statusCode == 200) {
             print('Counseling added successfully');
             Get.snackbar('Berhasil', 'Berhasil mengedit Bimbingan');
-            Get.toNamed(Routes.GUIDANCE);
+            Get.offAllNamed(Routes.GUIDANCE);
             // Optionally, refresh your counseling list here
           } else {
             print('Failed to add counseling');

@@ -566,10 +566,13 @@ class GuidanceView extends GetView<GuidanceController> {
                 TabItem(icon: Icons.note_add_rounded, title: 'Bimbingan'),
               ],
               initialActiveIndex: pageC.pageIndex.value,
-              onTap: (int i) => pageC.pageIndex(i),
+              onTap: (int i) {
+                pageC.navigation(i);
+                pageC.pageIndex(i);
+              },
             );
           } else {
-            return SizedBox();
+            return SizedBox.shrink();
           }
         },
       ),
