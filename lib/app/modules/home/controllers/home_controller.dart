@@ -3,6 +3,7 @@ import 'package:bimbingan_akademik/app/models/counselling_topic.dart';
 import 'package:bimbingan_akademik/app/models/course.dart';
 import 'package:bimbingan_akademik/app/models/gudance.dart';
 import 'package:bimbingan_akademik/app/models/user_model.dart';
+import 'package:bimbingan_akademik/app/models/weather.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,10 +19,17 @@ class HomeController extends GetxController {
   var counsellings = <Counselling>[].obs;
   var counsellingTopics = <CounsellingTopic>[].obs;
 
+  var weather = Weather(
+    location: Location(
+        name: '', region: '', country: '', lat: 0.0, lon: 0.0, localtime: ''),
+    current: Current(tempC: 0.0, conditionText: '', conditionIcon: ''),
+  ).obs;
+
   @override
   void onInit() {
     super.onInit();
     getProfile(); // Call getProfile when controller initializes
+    getWeather();
   }
 
   Future<void> getProfile() async {
@@ -100,6 +108,23 @@ class HomeController extends GetxController {
             }
           }
         }
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> getWeather() async {
+    try {
+      final response = await http.get(Uri.parse(
+          'https://api.weatherapi.com/v1/current.json?key=3b8c9ca7728143a7841224234240707&q=Padang&aqi=no'));
+
+      if (response.statusCode == 200) {
+        var data = json.decode(response.body);
+        weather.value = Weather.fromJson(data);
+        print('Weather: ${weather.value}');
+      } else {
+        print('Failed to load weather data');
       }
     } catch (e) {
       print('Error: $e');

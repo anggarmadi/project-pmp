@@ -177,6 +177,47 @@ class HomeView extends GetView<HomeController> {
                             ],
                           ),
                         ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Obx(() {
+                              if (controller.weather.value.location.name ==
+                                  '') {
+                                return CircularProgressIndicator();
+                              } else {
+                                return Column(
+                                  // mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      '${controller.weather.value.location.name}, ${controller.weather.value.location.region}',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '${controller.weather.value.current.tempC}°C',
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                    Text(
+                                      '${controller.weather.value.current.conditionText}',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ],
+                                );
+                              }
+                            }),
+                          ],
+                        ),
+                        Obx(() {
+                          if (controller.weather.value.location.name == '') {
+                            return CircularProgressIndicator();
+                          } else {
+                            return Image.network(
+                                'https:${controller.weather.value.current.conditionIcon}');
+                          }
+                        }),
                       ],
                     ),
                     const SizedBox(height: 24),

@@ -2,30 +2,29 @@ name: bimbingan_akademik
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
-  sdk: '>=3.2.4 <4.0.0'
+environment:
+    sdk: ">=3.2.4 <4.0.0"
 
-dependencies: 
-  cupertino_icons: ^1.0.2
-  get: 4.6.6
-  convex_bottom_bar: 3.2.0
-  intl: 0.18.1
-  syncfusion_flutter_pdfviewer: ^22.2.8
-  http: ^1.2.0
-  shared_preferences: 2.2.3
-  web: ^0.5.0 
-  flutter: 
-    sdk: flutter
+dependencies:
+    cupertino_icons: ^1.0.2
+    get: 4.6.6
+    convex_bottom_bar: 3.2.0
+    intl: 0.18.1
+    syncfusion_flutter_pdfviewer: ^22.2.8
+    http: ^1.2.0
+    shared_preferences: 2.2.3
+    web: ^0.3.0
+    flutter:
+        sdk: flutter
 
-dev_dependencies: 
-  flutter_lints: ^2.0.0
-  flutter_test: 
-    sdk: flutter
+dev_dependencies:
+    flutter_lints: ^2.0.0
+    flutter_test:
+        sdk: flutter
 
-flutter: 
-  assets: 
-    - assets/storage/kartuuts.pdf
-    - assets/img/Qr_code.png
-    - assets/img/
-  uses-material-design: true
-
+flutter:
+    assets:
+        - assets/storage/kartuuts.pdf
+        - assets/img/Qr_code.png
+        - assets/img/
+    uses-material-design: true
