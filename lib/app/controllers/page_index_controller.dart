@@ -1,4 +1,3 @@
-import 'package:bimbingan_akademik/app/models/user_model.dart';
 import 'package:bimbingan_akademik/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 

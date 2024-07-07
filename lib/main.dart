@@ -1,5 +1,4 @@
 import 'package:bimbingan_akademik/app/controllers/page_index_controller.dart';
-import 'package:bimbingan_akademik/app/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
